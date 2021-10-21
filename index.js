@@ -191,8 +191,13 @@ function eventListeners() {
     moving = true;
     //console.log('img', origin, currPiece, moving);
     // console.log(letterColor);
-    for (let img of imgEls) {
-      img.removeEventListener('mousedown', startMove);
+    if (
+      (playWhite && currPiece.color == 'w') ||
+      (!playWhite && currPiece.color == 'b')
+    ) {
+      for (let img of imgEls) {
+        img.removeEventListener('mousedown', startMove);
+      }
     }
   }
 
