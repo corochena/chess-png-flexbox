@@ -1,0 +1,59 @@
+.container {
+  display: flex;
+}
+
+#content {
+  flex: 3;
+}
+
+.controls {
+  flex: 1;
+}
+
+#log {
+  margin-top: 2px;
+  font-family: monospace;
+  font-size: 150%;
+  width: 250px;
+}
+
+.time {
+  background: lemonchiffon;
+  border: 1px black solid;
+  width: 250px;
+  height: 50px;
+  text-align: center;
+  margin-top: 2px;
+}
+
+.cell-black {
+  background: maroon;
+}
+
+.cell-white {
+  background: lemonchiffon;
+}
+
+td img {
+  width: 90%;
+}
+
+td {
+  text-align: center;
+  width: 73px;
+  height: 73px;
+}
+
+table {
+  margin: auto;
+  border: 1px solid black;
+}
+
+body {
+  margin: 6px;
+  background: rgb(165, 165, 202);
+}
+
+textarea {
+  resize: none;
+}

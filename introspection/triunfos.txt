@@ -1,0 +1,10 @@
+1. Me deshice de los glyphicons de bootstrap con unicode para las piezas
+2. Me deshice de jQuery uso vanilla js
+3. Refactor la funcion piezasTabla() usando 
+createElement, className, classList, setAttribute, innerHTML, appendChild y removeChild
+4. Refactor la funcion pieceCode() usando un diccionario (cuando usaba glyphicons)
+5. Refactor la funcion piece() usando una string con el orden de las piezas RNBQKBNR
+6. Mas simple para poner la columna a mover con una string abcdefgh
+
+7. Le puse imagenes png, se ve mejor, en vez de los unicodes
+8. Me deshice del grid system de bootstrap usando flexbox, mas simple el html

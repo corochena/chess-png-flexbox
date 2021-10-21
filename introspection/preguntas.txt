@@ -1,0 +1,16 @@
+
+Como hago para que la tabla no selecciones las celdas con el mouse drag? 
+Por que no pasaba esto con los glyphicons de bootstrap?
+
+Realmente necesito el atributo data-id?
+R. si, lo necesito para saber que pieza se está jugando
+
+Necesito las clases pz-white y pz-black?
+R. not really, los colores de las piezas no hacen un gran cambio
+
+Como manejo el cambio de turno?
+R. con una variable booleana playWhite que cambio a true or false despues de cada jugada, 
+excepto cuando es enroque
+
+Como hago para que el peon negro se vea igual que el resto de las piezas?
+R. poniendo font-family: monospace en su clase
