@@ -1,7 +1,14 @@
 let timeWhite = 0;
 let timeBlack = 0;
+
 let playWhite = true;
 let moving = false;
+
+let moves = [];
+let tablero = [];
+let origin, destiny, currPiece;
+
+// const audio = new Audio('tick.wav');
 
 const imgs = {
   Bb: 'https://i.ibb.co/MRS7W34/Bb.png',
@@ -18,12 +25,6 @@ const imgs = {
   Rw: 'https://i.ibb.co/wJkhVtC/Rw.png',
 };
 
-let moves = [];
-
-// const audio = new Audio('tick.wav');
-let tablero = [];
-let origin, destiny, currPiece;
-
 const timer = setInterval(function () {
   if (playWhite) timeWhite++;
   else timeBlack++;
@@ -33,7 +34,6 @@ const timer = setInterval(function () {
 
 iniciarTablero();
 piezasTabla(tablero);
-printLog(moves);
 
 function hms(seg) {
   // devuelve una cadena con formato 0h:00m:00s.0
@@ -46,7 +46,7 @@ function hms(seg) {
 }
 
 function iniciarTablero() {
-  // crea un arreglo de dos dimensiones y lo llena con objetos piezas retornados por la funcion piece
+  // it fills the global 2D array tablero with objects returned by piece()
 
   function piece(row, col) {
     let letter, color;
@@ -60,7 +60,7 @@ function iniciarTablero() {
   }
 
   for (var i = 0; i < 8; i++) {
-    tablero[i] = [];
+    tablero[i] = []; // weird, I would normally use tablero.push([])
     for (var j = 0; j < 8; j++) {
       tablero[i].push(piece(i, j));
     }
@@ -104,6 +104,7 @@ function piezasTabla(array) {
 }
 
 function pieceUnicode(piece) {
+  // it returns a unicode for the corresponding chess piece white or black
   const d = { K: 12, Q: 13, R: 14, B: 15, N: 16, P: 17 };
   let num = d[piece.letter];
   if (piece.color == 'b') num += 6;
@@ -180,14 +181,16 @@ function eventListeners() {
   const imgEls = document.querySelectorAll('td img');
 
   for (let img of imgEls) {
-    img.addEventListener('mousedown', function (e) {
-      const letterColor = this.getAttribute('data-id');
-      currPiece = { letter: letterColor[0], color: letterColor[1] };
-      origin = this.parentNode.getAttribute('id');
-      console.log('img', origin, currPiece, moving);
-      moving = true;
-      // console.log(letterColor);
-    });
+    img.addEventListener('mousedown', startMove);
+  }
+
+  function startMove(e) {
+    const letterColor = this.getAttribute('data-id');
+    currPiece = { letter: letterColor[0], color: letterColor[1] };
+    origin = this.parentNode.getAttribute('id');
+    moving = true;
+    //console.log('img', origin, currPiece, moving);
+    // console.log(letterColor);
   }
 
   for (casilla of casillas) {
