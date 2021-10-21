@@ -191,6 +191,9 @@ function eventListeners() {
     moving = true;
     //console.log('img', origin, currPiece, moving);
     // console.log(letterColor);
+    for (let img of imgEls) {
+      img.removeEventListener('mousedown', startMove);
+    }
   }
 
   for (casilla of casillas) {
