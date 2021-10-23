@@ -4,3 +4,5 @@
 
 This app shows a chess board where you can click a piece to select it and click a square to move it. The log will show the moves done and the time used by each player.
 You can see in [action here](https://corochena.github.io/chess-png-flexbox/)
+
+I'd like to insert an image here.
